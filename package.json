@@ -1,15 +1,15 @@
 {
-  "name": "storybook-addon-kit",
+  "name": "storybook-addon-vue-mdx",
   "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "description": "Use Vue components inside MDX files, as if they were React components.",
   "keywords": [
-    "storybook-addons"
+    "vue", "mdx", "storybook-addons"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/storybook-addon-kit"
+    "url": "https://github.com/Sidnioulz/storybook-addon-vue-mdx"
   },
-  "author": "package-author",
+  "author": "Steve Dodier-Lazaro <sidnioulz@gmail.com>",
   "license": "MIT",
   "exports": {
     ".": {
@@ -39,7 +39,6 @@
     "*.d.ts"
   ],
   "scripts": {
-    "postinstall": "node scripts/welcome.js",
     "clean": "rimraf ./dist",
     "prebuild": "yarn clean",
     "build": "tsup",
@@ -101,9 +100,9 @@
     "access": "public"
   },
   "storybook": {
-    "displayName": "Addon Kit",
+    "displayName": "Vue support for MDX",
     "supportedFrameworks": [
-      "supported-frameworks"
+      "vue"
     ],
     "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
   }
