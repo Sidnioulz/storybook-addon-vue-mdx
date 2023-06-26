@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/blocks'
+
+import DemoTag from '../components/Tag.vue'
+import { Fragment } from 'react'
+import { Fragment as VueFragment } from 'vue'
+
+<Meta title="Vue/MDX With Vue" />
+
+# MDX With Vue
+
+This documentation file showcases the import of a Vue component within MDX.
+
+## Vue component from a SFC file
+
+<DemoTag label="test" />
+
+## React Fragment with built-in HTML
+
+<Fragment>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</Fragment>
+
+## Vue Fragment with built-in HTML
+
+<VueFragment>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</VueFragment>

@@ -1,1 +1,2 @@
-export * from "./dist/preview";
+// eslint-disable-next-line import/export
+export * from './dist/preview'

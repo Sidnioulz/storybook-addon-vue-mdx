@@ -1,21 +1,21 @@
-import React, { Fragment } from "react";
-import { styled, themes, convert } from "@storybook/theming";
-import { TabsState, Placeholder, Button } from "@storybook/components";
-import { List } from "./List";
+import React, { Fragment } from 'react'
+import { styled, themes, convert } from '@storybook/theming'
+import { TabsState, Placeholder, Button } from '@storybook/components'
+import { List } from './List'
 
 export const RequestDataButton = styled(Button)({
-  marginTop: "1rem",
-});
+  marginTop: '1rem',
+})
 
 type Results = {
-  danger: any[];
-  warning: any[];
-};
+  danger: any[]
+  warning: any[]
+}
 
 interface PanelContentProps {
-  results: Results;
-  fetchData: () => void;
-  clearData: () => void;
+  results: Results
+  fetchData: () => void
+  clearData: () => void
 }
 
 /**
@@ -73,4 +73,4 @@ export const PanelContent: React.FC<PanelContentProps> = ({
       <List items={results.warning} />
     </div>
   </TabsState>
-);
+)
