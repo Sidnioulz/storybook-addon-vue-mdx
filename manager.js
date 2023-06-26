@@ -1,1 +1,2 @@
-export * from "./dist/manager";
+// eslint-disable-next-line import/export
+export * from './dist/manager'

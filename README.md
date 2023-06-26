@@ -1,128 +1,70 @@
-<!-- README START -->
+# Storybook Addon Vue support for MDX
 
-# Storybook Addon Kit ([demo](https://main--601ada52c3d4040021afdc30.chromatic.com))
+Use Vue components inside MDX files, as if they were React components.
 
-Simplify the creation of Storybook addons
+## Limitations
 
-- 📝 Live-editing in development
-- ⚛️ React/JSX support
-- 📦 Transpiling and bundling with [tsup](https://tsup.egoist.dev/)
-- 🏷 Plugin metadata
-- 🚢 Release management with [Auto](https://github.com/intuit/auto)
-- 🧺 Boilerplate and sample code
-- 🛄 ESM support
-- 🛂 TypeScript by default with option to eject to JS
+This addon is in its early stages, the following limitations apply:
 
-### Migrating from Storybook 6.x to 7
+- Only works with Vue 3 and Storybook 7
+- Components must be locally imported into MDX files
+- Provide/Inject has not been tested yet but should work
+- **Customisation APIs may change in the future**
 
-Note, if you're looking to upgrade your addon from Storybook 6.x to 7, please refer to the [migration guide](https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#70-addon-authors-changes). The major changes are:
-
-- `register.js` was removed
-- No more default export from `@storybook/addons`
-- `@storybook/api` has been split into `@storybook/preview-api` and `@storybook/manager-api`
-
-Skip this section if you're bootstrapping a new addon.
-
-## Getting Started
-
-Click the **Use this template** button to get started.
-
-![](https://user-images.githubusercontent.com/321738/125058439-8d9ef880-e0aa-11eb-9211-e6d7be812959.gif)
-
-Clone your repository and install dependencies.
+## Installation
 
 ```sh
-yarn
+yarn add -D storybook-addon-vue-mdx
 ```
 
-<!-- README END -->
+In your `.storybook/main.js` file, add the following:
 
-### Development scripts
+```js
+export default {
+  addons: ['storybook-addon-vue-mdx'],
+}
+```
+
+## Usage
+
+In a `Sample.mdx` file, import the component you need, and use it using Vue JSX syntax:
+
+```mdx
+import MyComponent from 'path-to-components/MyComponent.vue'
+
+<MyComponent>bla bla</MyComponent>
+```
+
+The Vue JSX syntax is [documented by Vue](https://vuejs.org/guide/extras/render-function.html#jsx-tsx). Pay particular attention to [the syntax for passing slots](https://vuejs.org/guide/extras/render-function.html#passing-slots).
+
+## Customising the Vue app context
+
+This addon uses [veaury](https://github.com/devilwjp/veaury) to render Vue components in a React JSX context. In particular, the addon calls `applyPureVueInReact`. You may pass options to this function by defining `globals` in your `.storybook/preview.js` file, like so:
+
+```js
+const globals = {
+  vueMdx: {
+    beforeVueAppMount(app) {
+      app.use(myCustomPlugin)
+    },
+  },
+}
+
+export default {
+  globals,
+}
+```
+
+You may also directly import and use Veaury's `applyVueInReact` as per Veaury's [own documentation](https://github.com/devilwjp/veaury).
+
+## Development scripts
 
 - `yarn start` runs babel in watch mode and starts Storybook
-- `yarn build` build and package your addon code
+- `yarn build` builds and packages the addon code
+- `yarn pack:local` makes a local tarball to be used as a NPM dependency elsewhere
 
-### Switch from TypeScript to JavaScript
+## Bug reports
 
-Don't want to use TypeScript? We offer a handy eject command: `yarn eject-ts`
+Before reporting a bug, please thoroughly check Veaury's documentation and list of issues for matching issues.
 
-This will convert all code to JS. It is a destructive process, so we recommended running this before you start writing any code.
-
-## What's included?
-
-![Demo](https://user-images.githubusercontent.com/42671/107857205-e7044380-6dfa-11eb-8718-ad02e3ba1a3f.gif)
-
-The addon code lives in `src`. It demonstrates all core addon related concepts. The three [UI paradigms](https://storybook.js.org/docs/react/addons/addon-types#ui-based-addons)
-
-- `src/Tool.tsx`
-- `src/Panel.tsx`
-- `src/Tab.tsx`
-
-Which, along with the addon itself, are registered in `src/manager.ts`.
-
-Managing State and interacting with a story:
-
-- `src/withGlobals.ts` & `src/Tool.tsx` demonstrates how to use `useGlobals` to manage global state and modify the contents of a Story.
-- `src/withRoundTrip.ts` & `src/Panel.tsx` demonstrates two-way communication using channels.
-- `src/Tab.tsx` demonstrates how to use `useParameter` to access the current story's parameters.
-
-Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/manager.ts` and `src/preview.ts` accordingly.
-
-Lastly, configure you addon name in `src/constants.ts`.
-
-### Metadata
-
-Storybook addons are listed in the [catalog](https://storybook.js.org/addons) and distributed via npm. The catalog is populated by querying npm's registry for Storybook-specific metadata in `package.json`. This project has been configured with sample data. Learn more about available options in the [Addon metadata docs](https://storybook.js.org/docs/react/addons/addon-catalog#addon-metadata).
-
-## Release Management
-
-### Setup
-
-This project is configured to use [auto](https://github.com/intuit/auto) for release management. It generates a changelog and pushes it to both GitHub and npm. Therefore, you need to configure access to both:
-
-- [`NPM_TOKEN`](https://docs.npmjs.com/creating-and-viewing-access-tokens#creating-access-tokens) Create a token with both _Read and Publish_ permissions.
-- [`GH_TOKEN`](https://github.com/settings/tokens) Create a token with the `repo` scope.
-
-Then open your `package.json` and edit the following fields:
-
-- `name`
-- `author`
-- `repository`
-
-#### Local
-
-To use `auto` locally create a `.env` file at the root of your project and add your tokens to it:
-
-```bash
-GH_TOKEN=<value you just got from GitHub>
-NPM_TOKEN=<value you just got from npm>
-```
-
-Lastly, **create labels on GitHub**. You’ll use these labels in the future when making changes to the package.
-
-```bash
-npx auto create-labels
-```
-
-If you check on GitHub, you’ll now see a set of labels that `auto` would like you to use. Use these to tag future pull requests.
-
-#### GitHub Actions
-
-This template comes with GitHub actions already set up to publish your addon anytime someone pushes to your repository.
-
-Go to `Settings > Secrets`, click `New repository secret`, and add your `NPM_TOKEN`.
-
-### Creating a release
-
-To create a release locally you can run the following command, otherwise the GitHub action will make the release for you.
-
-```sh
-yarn release
-```
-
-That will:
-
-- Build and package the addon code
-- Bump the version
-- Push a release to GitHub and npm
-- Push a changelog to GitHub
+To report a bug, please use GitHub issues on this repository, making sure to include a working Minimal Working Example. For instance, you could use [storybook.new](https://new-storybook.netlify.app/) to bootstrap a reproduction environment.
