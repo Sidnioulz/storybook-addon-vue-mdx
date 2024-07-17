@@ -16,6 +16,7 @@ const preview: Preview = {
     },
   },
 
+  /* This is how you can customise the Vue application used in MDX files. */
   initialGlobals: {
     vueMdx: {
       beforeVueAppMount: (app) => {
