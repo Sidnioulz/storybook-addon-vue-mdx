@@ -7,30 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Prepare repository
         run: git fetch --unshallow --tags
 
-      - name: Use Node.js 20.x
-        uses: actions/setup-node@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 18.x
 
       - name: Install dependencies
-        uses: borales/actions-yarn@v4
-        with:
-          # The `--immutable` flag makes sure that all dependencies are installed
-          # according to the lockfile. If any version does not match for whatever
-          # reason, an error will be thrown, and the CI pipeline will fail.
-          cmd: install --immutable
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # if needed
+        run: yarn install --ignore-scripts
 
       - name: Create Release
-        uses: borales/actions-yarn@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        with:
-          cmd: release
+        run: |
+          yarn release
