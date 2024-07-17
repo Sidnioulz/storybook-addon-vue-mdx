@@ -14,7 +14,6 @@
     "url": "git@github.com:Sidnioulz/storybook-addon-vue-mdx.git"
   },
   "author": "Steve Dodier-Lazaro <sidnioulz@gmail.com>",
-  "type": "module",
   "license": "MIT",
   "exports": {
     ".": {
