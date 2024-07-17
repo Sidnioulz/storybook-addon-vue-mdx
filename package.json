@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-vue-mdx",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Use Vue components inside MDX files, as if they were React components.",
   "keywords": [
     "storybook-addons",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:Sidnioulz/storybook-addon-vue-mdx.git"
+    "url": "git+ssh://git@github.com/Sidnioulz/storybook-addon-vue-mdx.git"
   },
   "author": "Steve Dodier-Lazaro <sidnioulz@gmail.com>",
   "license": "MIT",
@@ -77,35 +77,41 @@
     "format:fix": "prettier --write .",
     "lint": "eslint --cache . --ext .ts,.tsx,.js,.jsx,.vue,.cjs",
     "lint:fix": "yarn lint --fix",
-    "pack:local": "yarn pack -f storybook-addon-vue-mdx-$(date +%s).tgz",
+    "pack:local": "yarn pack --out storybook-addon-vue-mdx-$(date +%s).tgz",
     "prebuild": "yarn clean",
     "prepack:local": "yarn build",
     "prepare": "husky install",
-    "prerelease": "zx scripts/prepublish-checks.mjs",
-    "release": "yarn build && auto shipit",
+    "release": "npm run build && auto shipit",
     "start": "run-p build:watch 'storybook'",
     "storybook": "storybook dev -p 6006",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.6.1",
     "@commitlint/config-conventional": "^17.6.5",
-    "@storybook/addon-essentials": "^7.0.23",
-    "@storybook/addon-interactions": "^7.0.23",
-    "@storybook/addon-links": "^7.0.23",
-    "@storybook/builder-vite": "^7.0.23",
+    "@storybook/addon-essentials": "^8.2.4",
+    "@storybook/addon-interactions": "^8.2.4",
+    "@storybook/addon-links": "^8.2.4",
+    "@storybook/builder-vite": "^8.2.4",
+    "@storybook/components": "^8.2.4",
+    "@storybook/manager": "^8.2.4",
+    "@storybook/manager-api": "^8.2.4",
     "@storybook/mdx2-csf": "^1.1.0",
-    "@storybook/react": "^7.0.23",
-    "@storybook/react-vite": "^7.0.23",
-    "@storybook/testing-library": "^0.0.14-next.1",
-    "@storybook/vue3": "^7.0.23",
+    "@storybook/preview-api": "^8.2.4",
+    "@storybook/react": "^8.2.4",
+    "@storybook/react-vite": "^8.2.4",
+    "@storybook/test": "^8.2.4",
+    "@storybook/theming": "^8.2.4",
+    "@storybook/types": "^8.2.4",
+    "@storybook/vue3": "^8.2.4",
     "@types/node": "^18.15.0",
-    "@types/react": "^18.0.34",
+    "@types/react": "^18.3.3",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "@vitejs/plugin-react": "^3.1.0",
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue": "^5.0.5",
     "@vue/eslint-config-typescript": "^11.0.3",
-    "auto": "^10.3.0",
+    "auto": "^11.1.6",
     "boxen": "^5.0.1",
     "commitlint": "^17.6.5",
     "dedent": "^0.7.0",
@@ -115,7 +121,7 @@
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-react": "^7.31.9",
-    "eslint-plugin-vue": "^9.15.1",
+    "eslint-plugin-vue": "^9.27.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.2",
     "npm-run-all": "^4.1.5",
@@ -124,28 +130,26 @@
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "rimraf": "^3.0.2",
-    "storybook": "^7.0.23",
+    "rimraf": "^5.0.9",
+    "storybook": "^8.2.4",
     "tsup": "^6.6.3",
     "typescript": "^4.9.5",
-    "vite": "^4.1.4",
-    "vue": "^3.3.0",
+    "vite": "^4.5.3",
+    "vue": "^3.4.31",
     "vuestic-ui": "^1.6.6",
-    "zx": "^1.14.1"
+    "zx": "^7.2.3"
   },
   "peerDependencies": {
-    "@storybook/blocks": "^7.0.0",
-    "@storybook/builder-vite": "^7.0.0",
-    "@storybook/components": "^7.0.0",
-    "@storybook/core-events": "^7.0.0",
-    "@storybook/manager-api": "^7.0.0",
+    "@storybook/blocks": "^8.2.4",
+    "@storybook/builder-vite": "^8.2.4",
+    "@storybook/components": "^8.2.4",
+    "@storybook/core-events": "^8.2.4",
+    "@storybook/manager-api": "^8.2.4",
     "@storybook/mdx2-csf": "^1.1.0",
-    "@storybook/preview-api": "^7.0.0",
-    "@storybook/theming": "^7.0.0",
-    "@storybook/types": "^7.0.0",
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "vue": "^3.3.0"
+    "@storybook/preview-api": "^8.2.4",
+    "@storybook/theming": "^8.2.4",
+    "@storybook/types": "^8.2.4",
+    "vue": "^3.4.31"
   },
   "publishConfig": {
     "access": "public"
@@ -158,6 +162,6 @@
     "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
   },
   "dependencies": {
-    "veaury": "^2.3.12"
+    "veaury": "^2.4.2"
   }
 }
