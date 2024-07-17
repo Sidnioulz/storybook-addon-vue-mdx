@@ -18,11 +18,19 @@ jobs:
           node-version: 20.x
 
       - name: Install dependencies
-        run: yarn install --ignore-scripts
+        uses: borales/actions-yarn@v4
+        with:
+          # The `--immutable` flag makes sure that all dependencies are installed
+          # according to the lockfile. If any version does not match for whatever
+          # reason, an error will be thrown, and the CI pipeline will fail.
+          cmd: install --immutable
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # if needed
 
       - name: Create Release
+        uses: borales/actions-yarn@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          yarn release
+        with:
+          cmd: release
