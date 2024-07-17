@@ -1,13 +1,13 @@
 function previewAnnotations(entry = []) {
-  return [...entry, require.resolve('./dist/preview.mjs')]
+  return [...entry, require.resolve('./dist/preview.cjs')]
 }
 
 function managerEntries(entry = []) {
-  return [...entry, require.resolve('./dist/manager.mjs')]
+  return [...entry, require.resolve('./dist/manager.cjs')]
 }
 
 function presets() {
-  return [require.resolve('./dist/preset.mjs')]
+  return [require.resolve('./dist/preset.cjs')]
 }
 
 module.exports = {
