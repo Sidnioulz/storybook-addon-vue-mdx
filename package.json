@@ -77,7 +77,7 @@
     "format:fix": "prettier --write .",
     "lint": "eslint --cache . --ext .ts,.tsx,.js,.jsx,.vue,.cjs",
     "lint:fix": "yarn lint --fix",
-    "pack:local": "yarn pack -f storybook-addon-vue-mdx-$(date +%s).tgz",
+    "pack:local": "yarn pack --out storybook-addon-vue-mdx-$(date +%s).tgz",
     "prebuild": "yarn clean",
     "prepack:local": "yarn build",
     "prepare": "husky install",
@@ -142,7 +142,7 @@
   "peerDependencies": {
     "@storybook/blocks": "^8.2.4",
     "@storybook/builder-vite": "^8.2.4",
-    "@storybook/components": "^8.2.1",
+    "@storybook/components": "^8.2.4",
     "@storybook/core-events": "^8.2.4",
     "@storybook/manager-api": "^8.2.4",
     "@storybook/mdx2-csf": "^1.1.0",

@@ -6,7 +6,7 @@ Use Vue components inside MDX files, as if they were React components.
 
 This addon is in its early stages, the following limitations apply:
 
-- Only works with Vue 3 and Storybook 7
+- Only works with Vue 3 and Storybook 8
 - Components must be locally imported into MDX files
 - Provide/Inject has not been tested yet but should work
 - **Customisation APIs may change in the future**
@@ -68,3 +68,7 @@ You may also directly import and use Veaury's `applyVueInReact` as per Veaury's 
 Before reporting a bug, please thoroughly check Veaury's documentation and list of issues for matching issues.
 
 To report a bug, please use GitHub issues on this repository, making sure to include a working Minimal Working Example. For instance, you could use [storybook.new](https://new-storybook.netlify.app/) to bootstrap a reproduction environment.
+
+### Migrating to a later Storybook version
+
+If you want to migrate the addon to support the latest version of Storyboook, you can check out the [addon migration guide](https://storybook.js.org/docs/addons/addon-migration-guide).
