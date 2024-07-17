@@ -11337,8 +11337,6 @@ __metadata:
     "@storybook/preview-api": ^8.2.4
     "@storybook/theming": ^8.2.4
     "@storybook/types": ^8.2.4
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     vue: ^3.4.31
   languageName: unknown
   linkType: soft
