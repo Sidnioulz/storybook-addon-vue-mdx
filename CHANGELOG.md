@@ -1,3 +1,15 @@
+# v1.0.0 (Wed Jul 17 2024)
+
+#### 💥 Breaking Change
+
+- feat: Port to Storybook 8.2.4 [#5](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/5) ([@Romainpetit](https://github.com/Romainpetit))
+
+#### Authors: 1
+
+- Romain Petit ([@Romainpetit](https://github.com/Romainpetit))
+
+---
+
 # v0.1.5 (Mon Jun 26 2023)
 
 #### ⚠️ Pushed to `main`
