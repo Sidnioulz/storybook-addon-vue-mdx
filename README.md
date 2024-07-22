@@ -6,7 +6,7 @@ Use Vue components inside MDX files, as if they were React components.
 
 This addon is in its early stages, the following limitations apply:
 
-- Only works with Vue 3 and Storybook 8
+- Only works with Vue 3 and Storybook 8 (for Storybook 7, use v0.1.5)
 - Components must be locally imported into MDX files
 - Provide/Inject has not been tested yet but should work
 - **Customisation APIs may change in the future**
