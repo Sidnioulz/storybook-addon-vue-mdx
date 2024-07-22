@@ -1,3 +1,20 @@
+# v1.0.1 (Mon Jul 22 2024)
+
+#### 🐛 Bug Fix
+
+- chore(deps): Downgrade to 8.0.0 for maximum compatibility [#7](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/7) ([@Sidnioulz](https://github.com/Sidnioulz))
+
+#### ⚠️ Pushed to `main`
+
+- docs: Mention page reload bug ([@Sidnioulz](https://github.com/Sidnioulz))
+- docs: Mention last SB7 version in README ([@Sidnioulz](https://github.com/Sidnioulz))
+
+#### Authors: 1
+
+- Steve Dodier-Lazaro ([@Sidnioulz](https://github.com/Sidnioulz))
+
+---
+
 # v1.0.0 (Wed Jul 17 2024)
 
 #### 💥 Breaking Change
