@@ -11,6 +11,8 @@ This addon is in its early stages, the following limitations apply:
 - Provide/Inject has not been tested yet but should work
 - **Customisation APIs may change in the future**
 
+There is also a known bug when running Storybook locally. Sometimes, the first page load of a MDX page with Vue components can crash because Storybook does not properly execute the code defined in `beforeVueAppMount`. This is probably due to how Storybook parses and runs the preview file, but the bug does not occur at all in production builds. You can work around this bug by refreshing the browser tab once, and it will successfully run on the second load.
+
 ## Installation
 
 ```sh
