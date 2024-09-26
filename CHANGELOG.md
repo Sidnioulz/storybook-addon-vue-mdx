@@ -1,3 +1,15 @@
+# v1.0.4 (Thu Sep 26 2024)
+
+#### 🐛 Bug Fix
+
+- chore(deps): Upgrade dependencies and make relevant changes to showcase SB [#10](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/10) ([@Sidnioulz](https://github.com/Sidnioulz))
+
+#### Authors: 1
+
+- Steve Dodier-Lazaro ([@Sidnioulz](https://github.com/Sidnioulz))
+
+---
+
 # v1.0.2 (Thu Sep 26 2024)
 
 #### 🐛 Bug Fix
