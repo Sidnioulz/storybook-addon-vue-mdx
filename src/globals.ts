@@ -9,7 +9,8 @@ type windowWithSbGlobals = typeof window & {
 
 export function getGlobals() {
   const preview = (window as windowWithSbGlobals).__STORYBOOK_PREVIEW__
-  const { globals } = preview.storyStore
 
-  return globals.get()[PARAM_KEY]
+  const { initialGlobals } = preview.storyStoreValue.userGlobals
+
+  return initialGlobals[PARAM_KEY]
 }
