@@ -1,3 +1,20 @@
+# v1.0.2 (Thu Sep 26 2024)
+
+#### 🐛 Bug Fix
+
+- chore: Put TS subpath exports first [#9](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/9) ([@Sidnioulz](https://github.com/Sidnioulz))
+- feat: Support both `globals` and `userGlobals` [#8](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/8) ([@Romainpetit](https://github.com/Romainpetit))
+- Revert "chore(deps) Upgrade to storybook@8.3.3" [#8](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/8) ([@Romainpetit](https://github.com/Romainpetit))
+- feat: Port to Storybook 8.3.0 [#8](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/8) ([@Romainpetit](https://github.com/Romainpetit))
+- chore(deps) Upgrade to storybook@8.3.3 [#8](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/8) ([@Romainpetit](https://github.com/Romainpetit))
+
+#### Authors: 2
+
+- Romain Petit ([@Romainpetit](https://github.com/Romainpetit))
+- Steve Dodier-Lazaro ([@Sidnioulz](https://github.com/Sidnioulz))
+
+---
+
 # v1.0.1 (Mon Jul 22 2024)
 
 #### 🐛 Bug Fix
