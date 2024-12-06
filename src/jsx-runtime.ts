@@ -9,6 +9,9 @@ const isLikelyVueComponent = (nodeType: any) => {
     if (!!nodeType.__name && !!nodeType.__scopeId) {
       return true
     }
+    if (!!nodeType.__name && !!nodeType.__hmrId) {
+      return true
+    }
     if (!!nodeType.name && !!nodeType.setup) {
       return true
     }
