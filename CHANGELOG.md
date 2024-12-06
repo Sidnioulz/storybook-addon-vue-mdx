@@ -1,3 +1,15 @@
+# v1.0.5 (Fri Dec 06 2024)
+
+#### 🐛 Bug Fix
+
+- fix: Support components without a scope ID [#12](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/12) ([@Sidnioulz](https://github.com/Sidnioulz))
+
+#### Authors: 1
+
+- Steve Dodier-Lazaro ([@Sidnioulz](https://github.com/Sidnioulz))
+
+---
+
 # v1.0.4 (Thu Sep 26 2024)
 
 #### 🐛 Bug Fix
