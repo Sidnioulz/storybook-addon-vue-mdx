@@ -1,3 +1,21 @@
+# v1.0.6 (Mon Feb 17 2025)
+
+#### ⚠️ Pushed to `main`
+
+- feat(deps): Update to Storybook 8.5 and React 19 ([@Sidnioulz](https://github.com/Sidnioulz))
+
+#### 🔩 Dependency Updates
+
+- chore(deps-dev): bump vite from 5.4.8 to 5.4.12 [#14](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/14) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- chore(deps): bump nanoid from 3.3.7 to 3.3.8 [#13](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/13) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Steve Dodier-Lazaro ([@Sidnioulz](https://github.com/Sidnioulz))
+
+---
+
 # v1.0.5 (Fri Dec 06 2024)
 
 #### 🐛 Bug Fix
