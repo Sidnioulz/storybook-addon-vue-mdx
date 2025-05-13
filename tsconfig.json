@@ -8,11 +8,13 @@
     "isolatedModules": true,
     "jsx": "react",
     "lib": ["es2020", "dom"],
-    "module": "commonjs",
+    "moduleResolution": "bundler",
+    "module": "Preserve",
     "noImplicitAny": true,
     "rootDir": "./src",
     "skipLibCheck": true,
-    "target": "ES2020"
+    "strict": true,
+    "target": "ES2022"
   },
   "include": ["src/**/*"]
 }

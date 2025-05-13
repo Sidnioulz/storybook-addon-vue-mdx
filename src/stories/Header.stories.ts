@@ -1,12 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { fn } from 'storybook/test'
 import { Header } from './Header'
 
 const meta: Meta<typeof Header> = {
   title: 'Example/Header',
   component: Header,
   argTypes: {
-    backgroundColor: { control: 'color' },
     onLogin: fn(),
     onLogout: fn(),
     onCreateAccount: fn(),

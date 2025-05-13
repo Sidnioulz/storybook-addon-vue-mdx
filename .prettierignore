@@ -20,3 +20,4 @@ build-storybook.log
 .env
 .idea
 .vscode
+pnpm-lock.yaml
