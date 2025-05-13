@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
-import { styled, themes, convert } from '@storybook/theming'
-import { Icons, IconsProps } from '@storybook/components'
+import { styled, themes, convert } from 'storybook/theming'
+import { Icons, IconsProps } from 'storybook/internal/components'
 
 const ListWrapper = styled.ul({
   listStyle: 'none',
@@ -51,7 +51,7 @@ const Description = styled.div({
   fontStyle: 'italic',
 })
 
-type Item = {
+export type Item = {
   title: string
   description: string
 }

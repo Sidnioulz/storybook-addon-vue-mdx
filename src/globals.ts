@@ -1,5 +1,5 @@
-import { type WebRenderer } from '@storybook/types'
-import { PreviewWeb } from '@storybook/preview-api'
+import { type WebRenderer } from 'storybook/internal/types'
+import { PreviewWeb } from 'storybook/preview-api'
 
 import { PARAM_KEY } from './constants'
 

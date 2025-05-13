@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react'
-import { styled, themes, convert } from '@storybook/theming'
-import { TabsState, Placeholder, Button } from '@storybook/components'
-import { List } from './List'
+import { styled, themes, convert } from 'storybook/theming'
+import { TabsState, Placeholder, Button } from 'storybook/internal/components'
+import { List, type Item } from './List'
 
 export const RequestDataButton = styled(Button)({
   marginTop: '1rem',
 })
 
 type Results = {
-  danger: any[]
-  warning: any[]
+  danger: Item[]
+  warning: Item[]
 }
 
 interface PanelContentProps {
@@ -43,18 +43,11 @@ export const PanelContent: React.FC<PanelContentProps> = ({
           two tabs.
         </Fragment>
         <Fragment>
-          <RequestDataButton
-            secondary
-            small
-            onClick={fetchData}
-            style={{ marginRight: 16 }}
-          >
+          <RequestDataButton onClick={fetchData} style={{ marginRight: 16 }}>
             Request data
           </RequestDataButton>
 
-          <RequestDataButton outline small onClick={clearData}>
-            Clear data
-          </RequestDataButton>
+          <RequestDataButton onClick={clearData}>Clear data</RequestDataButton>
         </Fragment>
       </Placeholder>
     </div>

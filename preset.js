@@ -7,7 +7,7 @@ function managerEntries(entry = []) {
 }
 
 function presets() {
-  return [require.resolve('./dist/preset.mjs')]
+  return [require.resolve('./dist/preset.js')]
 }
 
 module.exports = {
