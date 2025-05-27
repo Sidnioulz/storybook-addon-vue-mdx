@@ -4,7 +4,14 @@ import { defineConfig, type Options } from 'tsup'
 import { globalPackages as globalManagerPackages } from 'storybook/internal/manager/globals'
 import { globalPackages as globalPreviewPackages } from 'storybook/internal/preview/globals'
 
-const BROWSER_TARGET: Options['target'] = ['chrome100', 'safari15', 'firefox91']
+const BROWSER_TARGET: Options['target'] = [
+  'chrome131',
+  'edge134',
+  'firefox136',
+  'safari18.3',
+  'ios18.3',
+  'opera117',
+]
 const NODE_TARGET: Options['target'] = ['node20']
 
 const extraExternal = ['react', 'vue']
