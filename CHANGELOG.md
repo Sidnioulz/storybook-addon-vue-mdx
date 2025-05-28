@@ -1,3 +1,19 @@
+# v2.0.0 (Wed May 28 2025)
+
+#### 💥 Breaking Change
+
+- chore: Update build targets [#18](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/18) ([@Sidnioulz](https://github.com/Sidnioulz))
+- chore(deps): Fix security false positives [#18](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/18) ([@Sidnioulz](https://github.com/Sidnioulz))
+- chore: Switch CD workflow to pnpm [#18](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/18) ([@Sidnioulz](https://github.com/Sidnioulz))
+- chore: Update husky hooks [#18](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/18) ([@Sidnioulz](https://github.com/Sidnioulz))
+- feat: Port to Storybook 9 and React 19 [#18](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/18) ([@Sidnioulz](https://github.com/Sidnioulz))
+
+#### Authors: 1
+
+- Steve Dodier-Lazaro ([@Sidnioulz](https://github.com/Sidnioulz))
+
+---
+
 # v1.0.6 (Mon Feb 17 2025)
 
 #### ⚠️ Pushed to `main`
