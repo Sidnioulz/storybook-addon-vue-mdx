@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs'
+
+import { Fragment } from 'react'
+
+import { List } from '../components/List'
+
+<Meta title="React/MDX With React" />
+
+# MDX With React
+
+This documentation file showcases the import of a React component within MDX.
+
+## React component from a TSX file
+
+<List
+  items={[
+    { title: 'First item', description: 'Foo description' },
+    { title: 'Second item', description: 'Bar description' },
+  ]}
+/>
+
+## React Fragment with built-in HTML
+
+<Fragment>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</Fragment>
