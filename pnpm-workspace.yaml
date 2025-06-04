@@ -2,3 +2,5 @@ onlyBuiltDependencies:
   - esbuild
   - unrs-resolver
   - vue-demi
+packages:
+  - .
