@@ -1,3 +1,15 @@
+# v2.0.1 (Wed Jun 04 2025)
+
+#### 🐛 Bug Fix
+
+- fix(deps): Consolidate peer deps in sb 9 [#19](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/19) ([@dominic-optimuse](https://github.com/dominic-optimuse))
+
+#### Authors: 1
+
+- Dominic ([@dominic-optimuse](https://github.com/dominic-optimuse))
+
+---
+
 # v2.0.0 (Wed May 28 2025)
 
 #### 💥 Breaking Change
