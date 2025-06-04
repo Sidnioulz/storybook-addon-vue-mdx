@@ -37,6 +37,20 @@ const isLikelyVueComponent = (nodeType: unknown) => {
     ) {
       return true
     }
+
+    if ('render' in nodeType && typeof nodeType.render === 'function') {
+      return true
+    }
+
+    if ('setup' in nodeType && typeof nodeType.setup === 'function') {
+      return true
+    }
+    if ('__file' in nodeType && 'render' in nodeType) {
+      return true
+    }
+    if ('template' in nodeType && 'components' in nodeType) {
+      return true
+    }
   }
 
   return false
