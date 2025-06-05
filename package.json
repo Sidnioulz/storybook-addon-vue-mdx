@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-vue-mdx",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Use Vue components inside MDX files, as if they were React components.",
   "keywords": [
     "storybook-addons",
