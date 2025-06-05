@@ -1,3 +1,16 @@
+# v2.0.2 (Thu Jun 05 2025)
+
+#### 🐛 Bug Fix
+
+- chore: Make MacOS pnpm happy [#20](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/20) ([@Sidnioulz](https://github.com/Sidnioulz))
+- fix: Support more Vue component syntaxes [#20](https://github.com/Sidnioulz/storybook-addon-vue-mdx/pull/20) ([@Sidnioulz](https://github.com/Sidnioulz))
+
+#### Authors: 1
+
+- Steve Dodier-Lazaro ([@Sidnioulz](https://github.com/Sidnioulz))
+
+---
+
 # v2.0.1 (Wed Jun 04 2025)
 
 #### 🐛 Bug Fix
