@@ -86,7 +86,8 @@
     "prebuild": "pnpm clean",
     "prepack:local": "pnpm build",
     "prepare": "husky",
-    "release": "npm run build && auto shipit",
+    "release": "pnpm build && pnpm semantic-release",
+    "release:canary": "pnpm build && auto canary",
     "start": "run-p build:watch 'storybook'",
     "storybook": "storybook dev -p 6006",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -124,6 +125,7 @@
     "prompts": "^2.4.2",
     "prop-types": "^15.8.1",
     "rimraf": "^6.0.1",
+    "semantic-release": "^24.2.5",
     "storybook": "next",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
@@ -142,10 +144,10 @@
     "vue": "^3.4.31"
   },
   "resolutions": {
-    "@octokit/core": "^5.0.0",
-    "@octokit/request-error": "^5.1.1",
-    "@octokit/request": "^8.4.1",
-    "@octokit/plugin-paginate-rest": "^9.2.2"
+    "@octokit/core": "^7",
+    "@octokit/request-error": "^7",
+    "@octokit/request": "^10",
+    "@octokit/plugin-paginate-rest": "^13"
   },
   "publishConfig": {
     "access": "public"
