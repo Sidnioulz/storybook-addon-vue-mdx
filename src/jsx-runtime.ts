@@ -1,11 +1,12 @@
 import {
-  ComponentClass,
   createElement,
   Fragment,
+  ElementType,
   Key,
   ReactNode,
   type FunctionComponent,
 } from 'react'
+import { jsxs as reactJsxs } from 'react/jsx-runtime'
 import { applyPureVueInReact } from 'veaury'
 import { h, Fragment as VueFragment } from 'vue'
 import { getGlobals } from './globals'
@@ -61,13 +62,8 @@ const isLikelyVueFragment = (nodeType: unknown) =>
   nodeType === _vueFragment.type
 
 const jsx = (
-  nodeType:
-    | string
-    | ComponentClass<{ children: undefined; key: Key }, unknown>
-    | FunctionComponent<{ children: undefined; key: Key }>,
-  props: object & {
-    children?: ReactNode
-  },
+  nodeType: ElementType,
+  props: { children?: ReactNode; [key: string]: unknown },
   key: Key,
 ) => {
   const children = 'children' in props ? props.children : undefined
@@ -93,4 +89,31 @@ const jsx = (
   return createElement(nodeType, newProps, children)
 }
 
-export { Fragment, jsx, jsx as jsxs, jsx as jsxDEV }
+const jsxs = (
+  nodeType: ElementType,
+  props: { children?: ReactNode; [key: string]: unknown },
+  key?: Key,
+) => {
+  const children = 'children' in props ? props.children : undefined
+  const newProps = { ...props, children: undefined, key }
+  if (isLikelyVueComponent(nodeType)) {
+    const vueMdxOptions = getGlobals()
+
+    // TODO optimise / memoise wrappedNode
+    const wrappedNode = applyPureVueInReact(nodeType, vueMdxOptions)
+
+    return createElement(
+      wrappedNode as FunctionComponent<unknown>,
+      newProps,
+      children,
+    )
+  }
+
+  if (isLikelyVueFragment(nodeType)) {
+    return createElement(Fragment, newProps, children)
+  }
+
+  return reactJsxs(nodeType, props, key)
+}
+
+export { Fragment, jsx, jsxs, jsx as jsxDEV }
