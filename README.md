@@ -6,7 +6,7 @@ Use Vue components inside MDX files, as if they were React components.
 
 This addon is in its early stages, the following limitations apply:
 
-- Only works with Vue 3 and Storybook 9 (for Storybook 7, use v0.1.5, for Storybook 8, use v1.0.6)
+- Only works with Vue 3 and Storybook 11 (for Storybook 7, use v0.1.5, for Storybook 8, use v1.0.6, for Storybook 9, use v2.x, for Storybook 10, use v3.x)
 - Components must be locally imported into MDX files
 - Provide/Inject has not been tested yet but should work
 - **Customisation APIs may change in the future**
@@ -15,16 +15,46 @@ There is also a known bug when running Storybook locally. Sometimes, the first p
 
 ## Installation
 
+Run the following command to install the addon and register it in your Storybook configuration:
+
 ```sh
-yarn add -D storybook-addon-vue-mdx
+npx storybook add storybook-addon-vue-mdx
 ```
 
-In your `.storybook/main.js` file, add the following:
+### Manual installation
 
-```js
-export default {
-  addons: ['storybook-addon-vue-mdx'],
-}
+First, install the package:
+
+```sh
+npm install --save-dev storybook-addon-vue-mdx
+```
+
+Then, register it as an addon in `.storybook/main.ts`:
+
+```ts
+// Replace your-framework with the framework you are using (e.g., vue3-vite)
+import { defineMain } from '@storybook/your-framework/node'
+
+export default defineMain({
+  // ...rest of config
+  addons: [
+    '@storybook/addon-docs',
+    'storybook-addon-vue-mdx', // 👈 register the addon here
+  ],
+})
+```
+
+Finally, register the addon's preview annotations in `.storybook/preview.ts`:
+
+```ts
+// Replace your-framework with the framework you are using (e.g., vue3-vite)
+import { definePreview } from '@storybook/your-framework'
+import addonVueMdx from 'storybook-addon-vue-mdx'
+
+export default definePreview({
+  // ...rest of preview
+  addons: [addonVueMdx()], // 👈 register the addon here
+})
 ```
 
 ## Usage
@@ -41,29 +71,31 @@ The Vue JSX syntax is [documented by Vue](https://vuejs.org/guide/extras/render-
 
 ## Customising the Vue app context
 
-This addon uses [veaury](https://github.com/devilwjp/veaury) to render Vue components in a React JSX context. In particular, the addon calls `applyPureVueInReact`. You may pass options to this function by defining `globals` in your `.storybook/preview.js` file, like so:
+This addon uses [veaury](https://github.com/devilwjp/veaury) to render Vue components in a React JSX context. In particular, the addon calls `applyPureVueInReact`. You may pass options to this function by defining the `vueMdx` global in `initialGlobals`, in your `.storybook/preview.ts` file, like so:
 
-```js
-const globals = {
-  vueMdx: {
-    beforeVueAppMount(app) {
-      app.use(myCustomPlugin)
+```ts
+export default definePreview({
+  addons: [addonVueMdx()],
+  initialGlobals: {
+    vueMdx: {
+      beforeVueAppMount(app) {
+        app.use(myCustomPlugin)
+      },
     },
   },
-}
-
-export default {
-  globals,
-}
+})
 ```
+
+When the addon is registered with `addonVueMdx()`, these options are type-checked, and `app` is typed as a Vue `App`. The `VueMdxOptions` type is also exported by the package.
 
 You may also directly import and use Veaury's `applyVueInReact` as per Veaury's [own documentation](https://github.com/devilwjp/veaury).
 
 ## Development scripts
 
-- `yarn start` runs babel in watch mode and starts Storybook
-- `yarn build` builds and packages the addon code
-- `yarn pack:local` makes a local tarball to be used as a NPM dependency elsewhere
+- `pnpm start` builds the addon in watch mode and starts Storybook
+- `pnpm build` builds and packages the addon code
+- `pnpm typecheck` type-checks the addon and the local Storybook (run `pnpm build` first)
+- `pnpm pack:local` makes a local tarball to be used as a NPM dependency elsewhere
 
 ## Bug reports
 

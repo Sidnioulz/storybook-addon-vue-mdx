@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react'
-import { styled, themes, convert } from 'storybook/theming'
+import { themes } from 'storybook/theming'
+import { styled, convert } from 'storybook/theming/emotion'
 import { ArrowDownIcon } from '@storybook/icons'
 
 const ListWrapper = styled.ul({
