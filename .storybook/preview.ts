@@ -1,12 +1,14 @@
-import type { Preview } from '@storybook/react'
+import addonDocs from '@storybook/addon-docs'
+import { definePreview } from '@storybook/react-vite'
 import { createVuestic } from 'vuestic-ui'
 
-const preview: Preview = {
-  /* Parameters below are just for th local Storybook instance of this package. */
+import addonVueMdx from '../dist/index.js'
+
+export default definePreview({
+  addons: [addonDocs(), addonVueMdx()],
+
+  /* Parameters below are just for the local Storybook instance of this package. */
   parameters: {
-    backgrounds: {
-      default: 'light',
-    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -15,14 +17,14 @@ const preview: Preview = {
     },
   },
 
-  /* This is how you can customise the Vue application used in MDX files. */
   initialGlobals: {
+    backgrounds: { value: 'light' },
+
+    /* This is how you can customise the Vue application used in MDX files. */
     vueMdx: {
       beforeVueAppMount: (app) => {
         app.use(createVuestic())
       },
     },
   },
-}
-
-export default preview
+})

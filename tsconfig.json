@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "incremental": false,
@@ -11,10 +11,11 @@
     "moduleResolution": "bundler",
     "module": "esnext",
     "noImplicitAny": true,
-    "rootDir": "./src",
+    "rootDir": ".",
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2022"
+    "target": "ES2022",
+    "types": ["node"]
   },
-  "include": ["src/**/*", "tsup.config.ts"]
+  "include": ["src/**/*", ".storybook/**/*", "tsup.config.ts"]
 }

@@ -1,15 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { fn } from 'storybook/test'
 
+import preview from '../../.storybook/preview'
 import { Button } from './Button'
 
-// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta: Meta<typeof Button> = {
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
+const meta = preview.meta({
   title: 'Example/Button',
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  // More on argTypes: https://storybook.js.org/docs/api/arg-types
   argTypes: {
     backgroundColor: { control: 'color' },
+  },
+  args: {
     onClick: fn(),
   },
   tags: ['autodocs'],
@@ -20,36 +22,32 @@ const meta: Meta<typeof Button> = {
 </MyComponent>
 `,
   },
-}
+})
 
-export default meta
-type Story = StoryObj<typeof Button>
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-export const Primary: Story = {
-  // More on args: https://storybook.js.org/docs/react/writing-stories/args
+// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+export const Primary = meta.story({
   args: {
     primary: true,
     label: 'Button',
   },
-}
+})
 
-export const Secondary: Story = {
+export const Secondary = meta.story({
   args: {
     label: 'Button',
   },
-}
+})
 
-export const Large: Story = {
+export const Large = meta.story({
   args: {
     size: 'large',
     label: 'Button',
   },
-}
+})
 
-export const Small: Story = {
+export const Small = meta.story({
   args: {
     size: 'small',
     label: 'Button',
   },
-}
+})
