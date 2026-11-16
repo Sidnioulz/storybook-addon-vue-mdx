@@ -1,9 +1,9 @@
 import js from '@eslint/js'
+import eslintReact from '@eslint-react/eslint-plugin'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
-import reactPlugin from 'eslint-plugin-react'
-import tseslint from 'typescript-eslint'
-import globals from 'globals'
+import storybook from 'eslint-plugin-storybook'
 import vuePlugin from 'eslint-plugin-vue'
+import tseslint from 'typescript-eslint'
 
 export default [
   {
@@ -22,34 +22,14 @@ export default [
       '.idea',
       '.vscode',
       '.lintstagedrc.cjs',
-      '.prettierrc.js',
       'commitlint.config.cjs',
     ],
   },
   js.configs.recommended,
-  reactPlugin.configs.flat.recommended,
-  {
-    settings: {
-      react: {
-        version: 'detect',
-      },
-      'import/resolver': {
-        node: {
-          extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.cjs'],
-        },
-      },
-    },
-  },
   ...tseslint.configs.recommended,
   {
-    files: ['preset.js', '.storybook/local-preset.js'],
-    languageOptions: {
-      sourceType: 'commonjs',
-      globals: globals.node,
-    },
-    rules: {
-      '@typescript-eslint/no-require-imports': 'off',
-    },
+    files: ['**/*.{ts,tsx}'],
+    ...eslintReact.configs['recommended-typescript'],
   },
   ...vuePlugin.configs['flat/recommended'],
   {
@@ -65,6 +45,7 @@ export default [
       },
     },
   },
+  ...storybook.configs['flat/recommended'],
   {
     rules: {
       'line-comment-position': 'error',
