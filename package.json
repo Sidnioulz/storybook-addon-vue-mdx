@@ -131,7 +131,9 @@
     "vue": "^3.4.31"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
   },
   "packageManager": "pnpm@12.21.0",
   "engines": {
