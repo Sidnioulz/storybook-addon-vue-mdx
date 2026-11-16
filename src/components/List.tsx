@@ -62,12 +62,12 @@ interface ListItemProps {
 }
 
 export const ListItem: React.FC<ListItemProps> = ({ item }) => {
-  const [open, onToggle] = useState(false)
+  const [open, setOpen] = useState(false)
 
   return (
     <Fragment>
       <Wrapper>
-        <HeaderBar onClick={() => onToggle(!open)} role="button">
+        <HeaderBar onClick={() => setOpen(!open)} role="button">
           <Icon
             color={convert(themes.normal).appBorderColor}
             style={{
@@ -88,8 +88,8 @@ interface ListProps {
 
 export const List: React.FC<ListProps> = ({ items }) => (
   <ListWrapper>
-    {items.map((item, idx) => (
-      <ListItem key={idx} item={item}></ListItem>
+    {items.map((item) => (
+      <ListItem key={item.title} item={item}></ListItem>
     ))}
   </ListWrapper>
 )

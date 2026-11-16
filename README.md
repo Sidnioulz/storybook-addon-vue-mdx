@@ -95,6 +95,8 @@ You may also directly import and use Veaury's `applyVueInReact` as per Veaury's 
 - `pnpm start` builds the addon in watch mode and starts Storybook
 - `pnpm build` builds and packages the addon code
 - `pnpm typecheck` type-checks the addon and the local Storybook (run `pnpm build` first)
+- `pnpm test` runs the unit tests with Vitest
+- `pnpm lint` and `pnpm format` check the code with ESLint and Prettier
 - `pnpm pack:local` makes a local tarball to be used as a NPM dependency elsewhere
 
 ## Bug reports
