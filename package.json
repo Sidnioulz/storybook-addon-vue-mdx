@@ -38,13 +38,15 @@
     "./package.json": "./package.json"
   },
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist/**/*",
     "README.md",
-    "*.js",
-    "*.d.ts"
+    "jsx-dev-runtime.js",
+    "jsx-runtime.js",
+    "manager.js",
+    "preset.js",
+    "preview.js"
   ],
   "bundler": {
     "jsxEntries": [
