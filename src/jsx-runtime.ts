@@ -1,11 +1,5 @@
-import {
-  ComponentClass,
-  createElement,
-  Fragment,
-  Key,
-  ReactNode,
-  type FunctionComponent,
-} from 'react'
+import type { ElementType, Key } from 'react'
+import { Fragment, jsx as reactJsx, jsxs as reactJsxs } from 'react/jsx-runtime'
 import { applyPureVueInReact } from 'veaury'
 import { h, Fragment as VueFragment } from 'vue'
 import { getGlobals } from './globals'
@@ -60,37 +54,37 @@ const _vueFragment = h(VueFragment)
 const isLikelyVueFragment = (nodeType: unknown) =>
   nodeType === _vueFragment.type
 
-const jsx = (
-  nodeType:
-    | string
-    | ComponentClass<{ children: undefined; key: Key }, unknown>
-    | FunctionComponent<{ children: undefined; key: Key }>,
-  props: object & {
-    children?: ReactNode
-  },
-  key: Key,
-) => {
-  const children = 'children' in props ? props.children : undefined
-  const newProps = { ...props, children: undefined, key }
-
+/**
+ * Maps the element types that MDX produces to types React can render: Vue
+ * components are wrapped with veaury, and Vue fragments become React fragments.
+ */
+const toReactType = (nodeType: unknown): ElementType => {
   if (isLikelyVueComponent(nodeType)) {
     const vueMdxOptions = getGlobals()
 
     // TODO optimise / memoise wrappedNode
-    const wrappedNode = applyPureVueInReact(nodeType, vueMdxOptions)
-
-    return createElement(
-      wrappedNode as FunctionComponent<unknown>,
-      newProps,
-      children,
-    )
+    return applyPureVueInReact(nodeType, vueMdxOptions) as ElementType
   }
 
   if (isLikelyVueFragment(nodeType)) {
-    return createElement(Fragment, newProps, children)
+    return Fragment
   }
 
-  return createElement(nodeType, newProps, children)
+  return nodeType as ElementType
 }
 
-export { Fragment, jsx, jsx as jsxs, jsx as jsxDEV }
+const jsx = (nodeType: unknown, props: unknown, key?: Key) =>
+  reactJsx(toReactType(nodeType), props, key)
+
+/** Creates an element whose `props.children` array is static, so its items need no keys. */
+const jsxs = (nodeType: unknown, props: unknown, key?: Key) =>
+  reactJsxs(toReactType(nodeType), props, key)
+
+const jsxDEV = (
+  nodeType: unknown,
+  props: unknown,
+  key: Key | undefined,
+  isStaticChildren: boolean,
+) => (isStaticChildren ? jsxs : jsx)(nodeType, props, key)
+
+export { Fragment, jsx, jsxs, jsxDEV }
