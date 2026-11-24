@@ -123,11 +123,11 @@
     "zx": "^8.8.5"
   },
   "peerDependencies": {
-    "@storybook/addon-docs": "^11.0.0",
-    "@storybook/builder-vite": "^11.0.0",
+    "@storybook/addon-docs": "^11.0.0 || ^11.0.0-0",
+    "@storybook/builder-vite": "^11.0.0 || ^11.0.0-0",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
-    "storybook": "^11.0.0",
+    "storybook": "^11.0.0 || ^11.0.0-0",
     "vue": "^3.4.31"
   },
   "publishConfig": {
